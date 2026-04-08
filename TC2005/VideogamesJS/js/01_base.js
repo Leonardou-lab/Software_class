@@ -45,11 +45,27 @@ function draw() {
     ctx.beginPath();
     ctx.fillStyle = "pink";
     ctx.strokeStyle = "black";
-    ctx.ellipse(100, 400, 30, 30, 0, 0, Math.PI * 1.5, false);
+    ctx.ellipse(100, 400, 30, 30,0, 0, Math.PI * 1.5, false);
     ctx.fill();
     ctx.stroke();
 
+    //my figure
+    ctx.beginPath();
+    ctx.moveTo(550, 50);   
+    ctx.lineTo(450, 200);   
+    ctx.lineTo(650, 200);  
+    ctx.closePath();       
+
+    ctx.fillStyle = "blue";
+    ctx.fill();
+
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+
     house();
+    
 
     // TODO: Make different shapes using the canvas 2d functions
 
@@ -76,3 +92,6 @@ function house() {
     ctx.closePath();
     ctx.stroke();
 }
+
+
+

@@ -20,8 +20,9 @@ const box = {
     size: 200,
     x: 0,
     y: canvasHeight / 2,
-    direction: 1,
-    speed: 2.0,
+    directionX: 1,
+    directionY: 1,
+    speed: 3.0,
 }
 
 function main() {
@@ -45,10 +46,23 @@ function drawScene() {
     ctx.fillRect(box.x, box.y, box.size, box.size);
 
     // Update the properties of the object
-    //box.x += box.speed * box.direction;
+    box.x += box.speed * box.directionX;
+    box.y += box.speed * box.directionY;
 
     // TODO: Make the box move in X and Y axis
     // TODO: Make the box bounce off the walls
+    if (box.x + box.size >= canvasWidth || box.x <= 0) {
+        box.directionX *= -1;
+        box.speed *= 1.05;
+        box.size *= .95;
+    }
+    if (box.y + box.size >= canvasHeight || box.y <= 0) {
+        box.directionY *= -1;
+        box.speed *= 1.05;
+        box.size *= .95;
+    }
+    
+    
 
     requestAnimationFrame(drawScene);
 }
