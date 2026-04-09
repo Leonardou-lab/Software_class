@@ -18,7 +18,7 @@ let ctx;
 let game;
 
 // Variable to store the time at the previous frame
-let oldTime;
+let oldTime = 0;
 
 let playerSpeed = 0.5;
 
