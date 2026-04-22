@@ -18,9 +18,9 @@ let ctx;
 let game;
 
 // Variable to store the time at the previous frame
-let oldTime = 0;
+let oldTime;
 
-let playerSpeed = 0.5;
+let playerSpeed = 5;
 
 // Class for the main character in the game
 class Player extends GameObject {
@@ -30,6 +30,8 @@ class Player extends GameObject {
     }
 
     update(deltaTime) {
+        // Normalize 
+        this. velocity = this.velocity.normalize().times(playerSpeed);
         this.position = this.position.plus(this.velocity.times(deltaTime));
 
         this.clampWithinCanvas();
@@ -79,7 +81,8 @@ class Game {
 
         // Check collision against other objects
         for (let actor of this.actors) {
-            if (boxOverlap(this.player, actor)) {
+            if (this.player.position.minus(actor.position).squareLength()
+                <= ((this.player.size.x + actor.size.x) /2) **2){
                 actor.color = "yellow";
             } else {
                 actor.color = "grey";

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Chess Codex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Anno Domini · The Royal Game</p>
+      <h1 class="hero-title">The Chess<br>Codex<span></span></h1>
+      <p class="hero-tagline">An illuminated compendium of the six noble pieces that have contested kingdoms since time immemorial.</p>
+    </div>
+    <div class="hero-actions">
+      <button class="seal-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="seal-icon">☽</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- DIVIDER: chess board strip -->
+  <div class="board-strip" aria-hidden="true"></div>
+
+  <!-- CATALOG SECTION -->
+  <main class="catalog-section">
+    <div class="section-header">
+      <h2 class="section-title">Piece Catalog</h2>
+      <p class="section-sub">Search the manuscripts</p>
+      <div class="search-wrap">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="e.g. Queen, Knight…"
+          oninput="filterPieces(this.value)"
+          aria-label="Search pieces"
+        />
+        <span class="search-quill">✦</span>
+      </div>
+    </div>
+
+    <div class="cards-grid" id="cardsGrid">
+
+      <article class="piece-card" data-name="king">
+        <div class="card-symbol">♔</div>
+        <div class="card-body">
+          <h3 class="card-name">King</h3>
+          <span class="card-value">∞ — Sovereign</span>
+          <p class="card-desc">Moves one square in any direction. The most vital piece on the board — its capture ends the game. Weak in the opening, powerful in the endgame as an attacking force.</p>
+        </div>
+      </article>
+
+      <article class="piece-card" data-name="queen">
+        <div class="card-symbol">♕</div>
+        <div class="card-body">
+          <h3 class="card-name">Queen</h3>
+          <span class="card-value">9 points</span>
+          <p class="card-desc">Moves any number of squares in any direction — diagonally, horizontally, or vertically. The most powerful piece; commands the board with unmatched versatility.</p>
+        </div>
+      </article>
+
+      <article class="piece-card" data-name="rook">
+        <div class="card-symbol">♖</div>
+        <div class="card-body">
+          <h3 class="card-name">Rook</h3>
+          <span class="card-value">5 points</span>
+          <p class="card-desc">Moves any number of squares horizontally or vertically. Towers of the battlefield; devastating in open files and lethal when doubled on the seventh rank.</p>
+        </div>
+      </article>
+
+      <article class="piece-card" data-name="bishop">
+        <div class="card-symbol">♗</div>
+        <div class="card-body">
+          <h3 class="card-name">Bishop</h3>
+          <span class="card-value">3 points</span>
+          <p class="card-desc">Moves any number of squares diagonally, forever bound to one colour. The bishop pair controls sweeping diagonals and becomes formidable in open positions.</p>
+        </div>
+      </article>
+
+      <article class="piece-card" data-name="knight">
+        <div class="card-symbol">♘</div>
+        <div class="card-body">
+          <h3 class="card-name">Knight</h3>
+          <span class="card-value">3 points</span>
+          <p class="card-desc">Leaps in an L-shape: two squares in one direction then one square perpendicular. The only piece that jumps over others — prized in closed, tangled positions.</p>
+        </div>
+      </article>
+
+      <article class="piece-card" data-name="pawn">
+        <div class="card-symbol">♙</div>
+        <div class="card-body">
+          <h3 class="card-name">Pawn</h3>
+          <span class="card-value">1 point</span>
+          <p class="card-desc">Advances one square forward; captures diagonally. Humble yet transformative — a pawn that reaches the eighth rank may be promoted to any piece, changing the tide of war.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="no-results" id="noResults" hidden>No piece found in the archives.</p>
+  </main>
+
+  <!-- BOARD STRIP FOOTER DIVIDER -->
+  <div class="board-strip" aria-hidden="true"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p class="footer-text">
+      <span class="footer-symbol">♟</span>
+      The Chess Codex &nbsp;·&nbsp; Crafted with parchment &amp; ink
+      <span class="footer-symbol">♟</span>
+    </p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

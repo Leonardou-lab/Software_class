@@ -2,7 +2,7 @@
     es: {
         titulo: "Purrfect Cat Café",
         parrafo1: `Somos un café en el corazón de la ciudad donde puedes disfrutar de una deliciosa bebida
-            rodeado de gatos rescatados. Cada visita es una experiencia única llena de ronroneos,
+            rodeado de gatos rescatados. Cada visita es una experiencia única llena de ronroneos, 
             tranquilidad y el mejor café artesanal de la ciudad.`,
         parrafo2: `Todos nuestros gatos están rescatados, esterilizados y en busca de un hogar. Además de
             disfrutar tu café favorito, puedes conocer a cada uno de ellos y, si lo deseas, iniciar
@@ -59,7 +59,7 @@ class CambiadorIdioma {
 
 class CambiadorColor {
     constructor() {
-        this.oscuro = false;
+        this.claro = false;
         this.boton = this.crearBoton();
         document.querySelector("section").appendChild(this.boton);
     }
@@ -67,21 +67,21 @@ class CambiadorColor {
     crearBoton() {
         const boton = document.createElement("button");
         boton.className = "boton-color";
-        boton.textContent = "Modo Oscuro";
+        boton.textContent = "Modo claro";
         boton.onclick = () => this.cambiarColor();
         return boton;
     }
 
     cambiarColor() {
-        this.oscuro = !this.oscuro;
-        if (this.oscuro) {
-            document.body.style.backgroundColor = "#0D0603";
-            document.querySelector("section").style.backgroundColor = "#150A07";
+        this.claro = !this.claro;
+        if (this.claro) {
+            document.body.style.backgroundColor = "#9e6850";
+            document.querySelector("section").style.backgroundColor = "#9f847b";
             this.boton.textContent = "Modo Normal";
         } else {
             document.body.style.backgroundColor = "";
             document.querySelector("section").style.backgroundColor = "";
-            this.boton.textContent = "Modo Oscuro";
+            this.boton.textContent = "Modo Claro";
         }
     }
 }
