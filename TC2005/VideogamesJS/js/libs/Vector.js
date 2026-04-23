@@ -19,7 +19,7 @@ class Vector {
     }
 
     minus(other) {
-        return new Vector(this.x - other.x, this.y - other.y);a
+        return new Vector(this.x - other.x, this.y - other.y);
     }
 
     times(scalar) {

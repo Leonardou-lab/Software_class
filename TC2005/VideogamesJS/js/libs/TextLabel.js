@@ -12,7 +12,7 @@ class TextLabel {
     constructor(x, y, font, color) {
         this.x = x;
         this.y = y;
-        this.font = font;
+        this.font = font; 
         this.color = color;
     }
 
