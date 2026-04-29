@@ -86,7 +86,7 @@ class GameObject {
                               this.spriteRect.height,
                               // The position to draw the image
                               (this.position.x - this.halfSize.x * this.scale),
-                              (this.position.y - this.halfSize.y * this.scale),
+                              (this.position.y - this.halfSize.y * this.scale), 
                               this.size.x * this.scale,
                               this.size.y * this.scale);
             } else {
