@@ -146,6 +146,11 @@ class Game {
         this.scoreLabelRight = new TextLabel(canvasWidth/4*3,100,"40px Arial", "blue")
         this.timelabel = new TextLabel(canvasWidth/2-50,100,"40px Arial", "black")
 
+        //initialize sound elements
+        this.ping = document.createElement("audio");
+        this.ping.src = "../assets/audio/4387__noisecollector__pongblipe4.wav";
+        //make the sound repeat when it finishes. good for background musica
+
 
     }
 
@@ -206,10 +211,12 @@ class Game {
         if (boxOverlap(this.paddleLeft, this.ball) || boxOverlap(this.paddleRight, this.ball)) {
             this.ball.velocity.x *= -1;
             ballSpeed *= speedIncrease;
+            this.ping.play();
         }
         if (boxOverlap(this.borderTop, this.ball) || boxOverlap(this.borderBottom, this.ball)) {
             this.ball.velocity.y *= -1;
             ballSpeed *= speedIncrease;
+            this.ping.play();
         }
         if (boxOverlap(this.goalLeft, this.ball)) {
             this.scoreRight++;
