@@ -1,3 +1,4 @@
+//Leoanrdo Andre Flores Mendoza A01787221
 
 "use strict";
 
@@ -129,6 +130,7 @@ class PowerUp extends GameObject {
 
 
     update(deltaTime) {
+        // moves the powerup straight down using its own dropSpeed, independent of ballSpeed
         this.position = this.position.plus(this.velocity.times(this.dropSpeed).times(deltaTime));
         this.updateCollider();
 
@@ -182,6 +184,7 @@ class Game {
             let brick = new Paddle(new Vector(x, y), 100, 40, colors[row % colors.length]);
             
 
+            // randomly assign a powerup type to each brick
             if ( Math.random() < 0.15){
                 brick.powerup = "life";
 
@@ -259,16 +262,18 @@ class Game {
 }
 
 
-    // Move the paddles
+    
     this.paddlemain.update(deltaTime);
-
+   
     this.powerups = this.powerups.filter(p => {
     p.update(deltaTime);
     if (p.position.y > canvasHeight) return false;
+    // if the paddle catches a life powerup gains an extra life ,if multiball, spawn two extra balls
     if (this.inplay && boxOverlap(this.paddlemain, p)) {
         if (p.type === "life") {
             this.counterLifes++;
         } else if (p.type === "multiball") {
+            // spawn two extra balls moving diagonally from the main balls position
             let b1 = new Ball(new Vector(this.ball.position.x, this.ball.position.y), 10, 10, "cyan");
             let b2 = new Ball(new Vector(this.ball.position.x, this.ball.position.y), 10, 10, "cyan");
             b1.velocity = new Vector(Math.SQRT1_2, -Math.SQRT1_2);
@@ -324,11 +329,13 @@ class Game {
             if (boxOverlap(this.goalLeft, eb) || boxOverlap(this.goalRight, eb)) {
                 eb.velocity.x *= -1;
             }
+            // extra balls disappear when they fall off screen without costing a life
             if (boxOverlap(this.borderBottom, eb)){
                 return false;
             }
                  
 
+            // extra balls can destroy bricks and trigger powerups
             this.bricks = this.bricks.filter(brick => {
                 if (boxOverlap(brick, eb)) {
                     eb.velocity.y *= -1;
